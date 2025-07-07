@@ -31,5 +31,5 @@ export default defineConfig({
     },
   },
   // This ensures assets are loaded from the correct path when deployed
-  base: '/test-App/'
+  base: '/test-App'
 });

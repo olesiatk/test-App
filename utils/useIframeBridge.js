@@ -18,7 +18,6 @@ export function useIframeBridge() {
         if (Math.abs(newHeight - lastHeight) > 5) {
           lastHeight = newHeight;
           window.parent.postMessage({ type: 'SET_HEIGHT', height: newHeight }, '*');
-          console.log('[iframe] sending height:', newHeight);
         }
       }, 100);
     };
@@ -31,9 +30,7 @@ export function useIframeBridge() {
 
     const handleRouteUpdate = (e) => {
       if (e.data?.type === 'WP_ROUTE_UPDATE') {
-        console.log('e.data', e.data)
         navigate(e.data.href);
-        console.log('[iframe] sending href:', e.data.href);
       }
     };
 
@@ -44,5 +41,5 @@ export function useIframeBridge() {
       window.removeEventListener('message', handleRouteUpdate);
       clearTimeout(resizeTimeout);
     };
-  }, []);
+  }, [location]);
 }
