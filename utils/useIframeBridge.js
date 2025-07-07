@@ -42,5 +42,5 @@ export function useIframeBridge() {
       window.removeEventListener('message', handleRouteUpdate);
       clearTimeout(resizeTimeout);
     };
-  }, [location]);
+  }, []);
 }
