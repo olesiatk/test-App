@@ -1,8 +1,12 @@
 import { Outlet, NavLink, useLocation, Link } from 'react-router-dom'
 import { FaTasks, FaCheckCircle, FaCircle, FaPlus } from 'react-icons/fa'
 import './App.css'
+import { useIframeBridge } from '../utils/useIframeBridge' // або './useIframeBridge'
+
 
 function App() {
+  useIframeBridge();
+  
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const completeParam = searchParams.get('complete');
