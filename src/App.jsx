@@ -6,7 +6,7 @@ import { useIframeBridge } from '../utils/useIframeBridge' // або './useIfram
 
 function App() {
   useIframeBridge();
-  
+
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const completeParam = searchParams.get('complete');
@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="app-container">
       <header>
-        <h1><FaTasks /> Book Manager</h1>
+        <h1><FaTasks /> Task Manager</h1>
         <nav>
           <ul>
             <li>
@@ -30,7 +30,7 @@ function App() {
                 to="/?complete=false" 
                 className={completeParam === 'false' ? 'active' : ''}
               >
-                <FaCircle /> Wants To Read
+                <FaCircle /> Open Tasks
               </Link>
             </li>
             <li>
@@ -38,12 +38,12 @@ function App() {
                 to="/?complete=true" 
                 className={completeParam === 'true' ? 'active' : ''}
               >
-                <FaCheckCircle /> Completed Books
+                <FaCheckCircle /> Completed Tasks
               </Link>
             </li>
             <li>
               <NavLink to="/add" className="add-task-button">
-                <FaPlus /> Add Book
+                <FaPlus /> Add Task
               </NavLink>
             </li>
           </ul>
