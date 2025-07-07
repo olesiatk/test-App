@@ -55,6 +55,7 @@ function App() {
       <footer>
         <p>&copy; {new Date().getFullYear()} Book Manager App</p>
         <a target="_top"href='https://react.dev/'>Link to React</a>
+        <br />
         <a target="_blank" href='https://angular.dev/'>Link to Angular</a>
       </footer>
     </div>

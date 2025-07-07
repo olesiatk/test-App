@@ -12,15 +12,16 @@ export function useIframeBridge() {
     window.parent.postMessage({ type: 'ROUTE_CHANGE', href: location.pathname }, '*');
 
     const resize = () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        const newHeight = document.documentElement.scrollHeight;
-        if (Math.abs(newHeight - lastHeight) > 5) {
-          lastHeight = newHeight;
-          window.parent.postMessage({ type: 'SET_HEIGHT', height: newHeight }, '*');
-        }
-      }, 100);
-    };
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          const newHeight = document.body.getBoundingClientRect().height;
+      
+          if (Math.abs(newHeight - lastHeight) > 5) {
+            lastHeight = newHeight;
+            window.parent.postMessage({ type: 'SET_HEIGHT', height: newHeight }, '*');
+          }
+        }, 100);
+      };
 
     // Initial resize
     resize();
