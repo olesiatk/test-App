@@ -31,7 +31,9 @@ export function useIframeBridge() {
 
     const handleRouteUpdate = (e) => {
       if (e.data?.type === 'WP_ROUTE_UPDATE') {
+        console.log('e.data', e.data)
         navigate(e.data.href);
+        console.log('[iframe] sending href:', e.data.href);
       }
     };
 
