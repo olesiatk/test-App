@@ -29,7 +29,11 @@ const router = createBrowserRouter([
       }
     ]
   }
-])
+],
+{
+  basename: '/test-App' // <-- for GitHub Pages
+}
+)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
